@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=lexpy
+POSTGRES_USER=xprdjYVyvBjgtHPahvPbMvmIbfjMHdge
+POSTGRES_PASSWORD=Jw7PtkEPjb54oIOGHlJ396B4Lujo1vr9Pj53QTviRvomD1D8MDOdzgezuvU0aezT
