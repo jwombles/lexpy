@@ -1,47 +1,48 @@
-{% load static i18n compress%}
+{% load static %}
+{% load i18n compress%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}LexPy{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Lexpy is a group of python beginners, enthusiasts, and professionals who enjoy meeting and discussing various python related topics on a monthly basis.">
+    <meta name="author" content="Jim Wombles">
     <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
-
     {% block css %}
+    <!-- Third-party CSS libraries go here -->
+    <link href="{% static 'css/project.min.css' %}" rel="stylesheet">
     {% compress css %}
     <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'css/project.css' %}" rel="stylesheet"> -->
     {% endcompress %}
     {% endblock css %}
     <!-- Custom styles for this template -->
-    <!-- <link href="jumbotron.css" rel="stylesheet"> -->
+    {# <link href="jumbotron.css" rel="stylesheet"> #}
   </head>
+
   <body>
-    <!-- <div class="container"> -->
     {% include 'base/navbar.html' %}
+      <main role="main">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}></div>
+          {% endfor %}
+        {% endif %}
 
-    {% block messages %}
-      {% if messages %}
-      <div class="container">
-      {% for message in messages %}
-        <div class="alert {% if message.tags %}alert -{{ message.tags }}{% endif %}">{{ message }}></div>
-      {% endfor %}
-      </div>
-    {% endif %}
-    {% endblock messages %}}
+        {% block content %}
+          <p>You are viewing the base template text</p>
+        {% endblock content %}
 
-  {% block content %}
+        {% block modal %}{% endblock modal %}
 
-  {% endblock content %}
-
-  {% block footer %}
-      <footer class="container">
-      <p>&copy; LexPy 2018</p>
-    </footer>
-  {% endblock footer %}
+        {% block footer %}
+          <footer class="container">
+          <p>&copy; LexPy 2018</p>
+          </footer>
+        {% endblock footer %}
+      </main>
 
     {% block javascript %}
 
@@ -50,25 +51,11 @@
         <script src="{% static 'js/vendors.js' %}"></script>
       {% endcompress %}
 
-       <!-- place project specific Javascript in this file -->
+      <!-- place project specific Javascript in this file -->
       {% compress js %}
-      <script src="{% static 'js/project.js' %}"></script>
+        <script src="{% static 'js/project.js' %}"></script>
       {% endcompress %}
 
-    {% endblock javascript %}}
-
-  </body>
-  </html>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!--CDN from source code on bootstrap
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    {% endblock javascript %}
   </body>
 </html>
-  -->
