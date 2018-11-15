@@ -23,25 +23,24 @@
     <!-- <div class="container"> -->
     {% include 'base/navbar.html' %}
 
-    {% block messages %}
-      {% if messages %}
-      <div class="container">
+    <div class="container">
+    {% if messages %}
       {% for message in messages %}
-        <div class="alert {% if message.tags %}alert -{{ message.tags }}{% endif %}">{{ message }}></div>
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}></div>
       {% endfor %}
-      </div>
     {% endif %}
-    {% endblock messages %}}
 
-  {% block content %}
+    {% block content %}
+    {% endblock content %}
+    </div><!-- /container -->
 
-  {% endblock content %}
+    {% block modal %}{% endblock modal %}
 
-  {% block footer %}
+    {% block footer %}
       <footer class="container">
       <p>&copy; LexPy 2018</p>
-    </footer>
-  {% endblock footer %}
+      </footer>
+    {% endblock footer %}
 
     {% block javascript %}
 

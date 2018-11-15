@@ -3,14 +3,10 @@
 {% url 'events' as meetups_url %}
 {% url 'about' as about_url %}
 {% url 'resources' as resources_url %}
-<<<<<<< HEAD
-{% url 'profile' as profile_url %}
-{% url 'join' as logout_url %}
-{% url 'join' as join_url %}
-{% url 'login' as login_url %}
-=======
-{% url 'join' as join_url %}
->>>>>>> 67d1dae73c51fd6990bd1392f74724cf2249845d
+{% url 'users:detail' as my_profile_url %}
+{% url 'account_logout' as logout_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_login' as login_url %}
 
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -21,30 +17,31 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item {% if request.path == home_url %}active{% endif %}">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item {% if request.path == events_url %}active{% endif %}">
-        <a class="nav-link" href="#">Events <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'home' %}">{% trans "Home " %} <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item {% if request.path == about_url %}active{% endif %}">
-        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'about' %}">{% trans "About " %}<span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item {% if request.path == events_url %}active{% endif %}">
+        <a class="nav-link" href="#">{% trans "Events " %}<span class="sr-only">(current)</span></a>
+      </li>
+
       {% if request.user.is_authenticated %}
         <li class="nav-item {% if request.path == resources_url %}active{% endif %}">
-          <a class="nav-link" href="#">Resources </a>
+          <a class="nav-link" href="#">{% trans "Resources " %}</a>
         </li>
         <li class="nav-item {% if request.path == profile_url %}active{% endif %}">
-          <a class="nav-link" href="#">Profile </a>
+          <a class="nav-link" href="{% url 'users:detail' request.user.username %}">{% trans "My Profile" %}</a>
         </li>
         <li class="nav-item {% if request.path == logout_url %}active{% endif %}">
-          <a class="nav-link" href="#">Logout </a>
+          <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Logout " %}</a>
         </li>
       {% else %}
         <li class="nav-item {% if request.path == signup_url %}active{% endif %}">
-          <a class="nav-link" href="#">Join </a>
+          <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
         </li>
         <li class="nav-item {% if request.path == login_url %}active{% endif %}">
-          <a class="nav-link" href="#">Login </a>
+          <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
         </li>
       {% endif %}
     </ul>
