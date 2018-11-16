@@ -4,7 +4,7 @@
 {% url 'events' as meetups_url %}
 {% url 'about' as about_url %}
 {% url 'resources' as resources_url %}
-{% url 'users:detail' as my_npmprofile_url %}
+{% url 'users:detail' as my_profile_url %}
 {% url 'account_logout' as logout_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_login' as login_url %}
@@ -25,9 +25,8 @@
         <a class="nav-link" href="{% url 'about' %}">{% trans "About " %}<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item {% if request.path == events_url %}active{% endif %}">
-        <a class="nav-link" href="#">{% trans "Events " %}<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'events' %}">{% trans "Events " %}<span class="sr-only">(current)</span></a>
       </li>
-
       {% if request.user.is_authenticated %}
         <li class="nav-item {% if request.path == resources_url %}active{% endif %}">
           <a class="nav-link" href="#">{% trans "Resources " %}</a>
