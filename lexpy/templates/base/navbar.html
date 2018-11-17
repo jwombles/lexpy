@@ -9,7 +9,6 @@
 {% url 'account_signup' as signup_url %}
 {% url 'account_login' as login_url %}
 
-<div class="m-t-5">
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="#">LexPy</a>
@@ -25,7 +24,7 @@
         <a class="nav-link" href="{% url 'about' %}">{% trans "About " %}<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item {% if request.path == events_url %}active{% endif %}">
-        <a class="nav-link" href="{% url 'events' %}">{% trans "Events " %}<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#' %}">{% trans "Events " %}<span class="sr-only">(current)</span></a>
       </li>
       {% if request.user.is_authenticated %}
         <li class="nav-item {% if request.path == resources_url %}active{% endif %}">
@@ -48,6 +47,3 @@
     </ul>
   </div>
 </nav>
-</div>
-
-

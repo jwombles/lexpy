@@ -15,7 +15,8 @@
     <link href="{% static 'css/project.min.css' %}" rel="stylesheet">
     {% compress css %}
     <!-- This file stores project-specific CSS -->
-    <!-- <link href="{% static 'css/project.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
     {% endcompress %}
     {% endblock css %}
     <!-- Custom styles for this template -->
@@ -24,7 +25,6 @@
 
   <body>
     {% include 'base/navbar.html' %}
-      <main role="main">
         {% if messages %}
           {% for message in messages %}
             <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}></div>
