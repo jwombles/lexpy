@@ -25,15 +25,18 @@
 
   <body>
     {% include 'base/navbar.html' %}
-        {% if messages %}
-          {% for message in messages %}
-            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}></div>
-          {% endfor %}
-        {% endif %}
 
-        {% block content %}
-          <p>You are viewing the base template text</p>
-        {% endblock content %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}></div>
+      {% endfor %}
+    {% endif %}
+
+    <main role="main">
+      {% block content %}
+        <p>You are viewing the base template text</p>
+      {% endblock content %}
+    </main>
 
         {% block modal %}{% endblock modal %}
 
@@ -42,7 +45,6 @@
           <p>&copy; LexPy 2018</p>
           </footer>
         {% endblock footer %}
-      </main>
 
     {% block javascript %}
       <!-- Vendor dependencies bundled as one file-->

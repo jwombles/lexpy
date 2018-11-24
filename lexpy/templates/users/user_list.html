@@ -5,13 +5,21 @@
 {% block content %}
 <div class="container">
   <h2>Users</h2>
-
-  <div class="list-group">
-    {% for user in user_list %}
-      <a href="{% url 'users:detail' user.username %}" class="list-group-item">
-        <h4 class="list-group-item-heading">{{ user.username }}</h4>
-      </a>
-    {% endfor %}
-  </div>
+  {% for user in user_list %}
+    <ul class="list-unstyled">
+      <li class="media">
+        <img class="mr-3" src="https://placekitten.com/150/150" alt="Profile Image">
+        <div class="media-body">
+          <a href="{% url 'users:detail' user.username %}">
+            <h4 class="list-group-itme-heading">{{ user.username }}</h4>
+          </a>
+          {% if user.bio %}
+          {{ user.bio }}
+          {% endif %}
+        </div>
+      </li>
+    </ul>
+  {% endfor %}
 </div>
 {% endblock content %}
+
