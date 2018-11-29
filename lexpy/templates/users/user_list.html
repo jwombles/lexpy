@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 {% load static i18n %}
-{% block title %}Members{% endblock %}
+{% block title %}LexPy Members{% endblock %}
 
 {% block content %}
 <div class="container">
-  <h2>Users</h2>
+  <h2>Members</h2>
   {% for user in user_list %}
     <ul class="list-unstyled">
       <li class="media">
-        <img class="mr-3" src="https://placekitten.com/150/150" alt="Profile Image">
+        {% if object.image %}
+          {{ user.image }}
+        {% else %}
+        <img class="mr-3" src="https://placekitten.com/75/75" alt="Profile Image">
+        {% endif %}
         <div class="media-body">
           <a href="{% url 'users:detail' user.username %}">
-            <h4 class="list-group-itme-heading">{{ user.username }}</h4>
+            <h4 class="list-group-item-heading">{{ user.username }}</h4>
           </a>
           {% if user.bio %}
           {{ user.bio }}

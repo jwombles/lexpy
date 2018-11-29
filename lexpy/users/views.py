@@ -30,7 +30,7 @@ user_list_view = UserListView.as_view()
 class UserUpdateView(LoginRequiredMixin, UpdateView):
 
     model = User
-    fields = ["name", "location", "birthdate", "experience", "domain", "bio"]
+    fields = ["name", "image", "location", "birthdate", "experience", "domain", "bio"]
 
     def get_success_url(self):
         return reverse("users:detail", kwargs={"username": self.request.user.username})

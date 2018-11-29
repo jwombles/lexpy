@@ -6,20 +6,9 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 
-def get_filename_ext(filepath):
-    base_name = os.path.basename(filepath)
-    name, ext = os.path.splitext(base_name)
-    return name, ext
-
-
-def upload_image_path(instance, filename):
-    new_filename = random.randint(1, 391092843)
-    name, ext = get_filename_ext(filename)
-    final_filename = '{new_filename}{ext}'.format(new_filename=new_filename, ext=ext)
-    return "users/{new_filename}/{final_filename}".format(
-            new_filename=new_filename,
-            final_filename=final_filename
-            )
+def user_directory_path(instance, filename):
+    #file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'user_{0}/{1}'.format(instance.user.id, filename)
 
 
 class User(AbstractUser):
@@ -57,6 +46,13 @@ class User(AbstractUser):
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
+    image = models.ImageField(upload_to="user_directory_path",
+            null=True,
+            blank=True,
+            width_field="width_field",
+            height_field="height_field")
+    height_field = models.IntegerField(default=0)
+    width_field = models.IntegerField(default=0)
     location = models.CharField(max_length=50, blank=True)
     birthdate = models.DateField(blank=True, default=date.today)
     experience = models.CharField(max_length=2, choices=EXPERIENCE_CHOICES, blank=True, null=True)

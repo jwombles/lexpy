@@ -25,7 +25,9 @@
     </div>
     <!-- End Action buttons -->
     {% endif %}
-
+      {% if object.image %}
+      <img src='{{ object.image.url }}' class='img-responsive' />
+      {% endif %}
       <p>Python Interest:  {{ object.get_domain_display }}</p>
       <p>Python Experience:  {{ object.get_experience_display }}</p>
       <p>Location:  {{ object.location }}</p>
