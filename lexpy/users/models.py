@@ -46,14 +46,14 @@ class User(AbstractUser):
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
-    image = models.ImageField(upload_to="user_directory_path",
-            null=True,
+    photo = models.ImageField(upload_to="user_directory_path",
             blank=True,
             width_field="width_field",
             height_field="height_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
-    location = models.CharField(max_length=50, blank=True)
+    city = models.CharField(max_length=50, blank=True)
+    # Fix default
     birthdate = models.DateField(blank=True, default=date.today)
     experience = models.CharField(max_length=2, choices=EXPERIENCE_CHOICES, blank=True, null=True)
     domain = models.CharField(max_length=2, choices=DOMAIN_CHOICES, blank=True, null=True)

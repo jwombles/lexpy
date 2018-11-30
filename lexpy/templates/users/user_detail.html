@@ -25,17 +25,26 @@
     </div>
     <!-- End Action buttons -->
     {% endif %}
-      {% if object.image %}
-      <img src='{{ object.image.url }}' class='img-responsive' />
-      {% endif %}
+    {% if user.photo %}
+      <img class ="mr-3" src="{{ user.photo.url }}" width="300" alt="Profile Image">
+    {% endif %}
+    {% if object.get_domain_display %}
       <p>Python Interest:  {{ object.get_domain_display }}</p>
+    {% endif %}
+    {% if object.get_experience_display %}
       <p>Python Experience:  {{ object.get_experience_display }}</p>
-      <p>Location:  {{ object.location }}</p>
+    {% endif %}
+    {% if object.city %}
+      <p>City:  {{ object.city }}</p>
+    {% endif %}
+    {% if object.birthdate %}
       <p>Birthdate:  {{ object.birthdate }}</p>
+    {% endif %}
+    {% if object.bio %}
       <p>Bio:  {{ object.bio }}</p>
+    {% endif %}
     </div>
   </div>
 
 </div>
 {% endblock content %}
-
