@@ -2,30 +2,31 @@
 
 {% block content %}
     <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">LexPy</h1>
-          <p>Lexpy is a group that is free to join and open to anyone and everyone interested in working with the python language.  We have monthly events ranging from presentations, working groups, hackathons and much more.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button"> &raquo;</a></p>
-        </div>
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">LexPy</h1>
+        <p>Lexpy is a group open to anyone and everyone interested in working with the python language.  We are based in Lexington, KY and have monthly events ranging from presentations, working groups, hackathons and much more.</p>
+        <p>Register below to join and stay informed of upcoming lexpy meetups!</p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'account_signup' %}" role="button"> &raquo; Join Lexpy</a></p>
       </div>
+    </div>
 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h2>Data Science</h2>
+          <p>Python is widely used in scientific and numeric computing.  A Data Scientist can combine statistical and machine learning techniques with Python programming to analyze and interpret complex data.</p>
           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h2>Desktop Applications</h2>
+          <p>The Tk GUI development library is included with most binary distributions for Python.  In addition, there are many other popular third-party GUI libraries like PyQt, Kivvy, and wxPython.</p>
           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <h2>Web Applications</h2>
+          <p>Python offers a wide range of choices for web development, from writing basic Common Gateway Interface scripts using the CGI module, to popular MVC frameworks like Django, Flask, and TurboGears.</p>
           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div>

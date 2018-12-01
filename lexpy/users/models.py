@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 def user_directory_path(instance, filename):
     #file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'user_{0}/{1}'.format(instance.user.id, filename)
+    return 'user_{0}/{1}'.format(instance.username, filename)
 
 
 class User(AbstractUser):
@@ -46,15 +46,13 @@ class User(AbstractUser):
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
-    photo = models.ImageField(upload_to="user_directory_path",
+    photo = models.ImageField(upload_to=user_directory_path,
             blank=True,
             width_field="width_field",
             height_field="height_field")
-    height_field = models.IntegerField(default=0)
-    width_field = models.IntegerField(default=0)
+    height_field = models.IntegerField(default=0, blank= True, null=True)
+    width_field = models.IntegerField(default=0, blank=True, null=True)
     city = models.CharField(max_length=50, blank=True)
-    # Fix default
-    birthdate = models.DateField(blank=True, default=date.today)
     experience = models.CharField(max_length=2, choices=EXPERIENCE_CHOICES, blank=True, null=True)
     domain = models.CharField(max_length=2, choices=DOMAIN_CHOICES, blank=True, null=True)
     bio = models.TextField(max_length=500, blank=True)
