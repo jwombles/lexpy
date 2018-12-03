@@ -38,13 +38,16 @@
       {% endblock content %}
     </main>
 
-        {% block modal %}{% endblock modal %}
+    {% block modal %}{% endblock modal %}
 
-        {% block footer %}
-          <footer class="container">
-          <p>&copy; LexPy 2018</p>
-          </footer>
-        {% endblock footer %}
+    {% block footer %}
+      <footer class="footer">
+        <div class="container">
+          {% now "Y" as current_year %}
+          <span class="text-muted">{% blocktrans %}&copy; Lexpy {{ current_year }}{% endblocktrans %}</span>
+        </div>
+      </footer>
+    {% endblock footer %}
 
     {% block javascript %}
       <!-- Vendor dependencies bundled as one file-->
