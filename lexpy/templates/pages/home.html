@@ -5,7 +5,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1 class="display-3">LexPy</h1>
-        <p>Lexpy is a group based in Lexington, Ky open to anyone and everyone interested in working with the python language.  We have monthly meetups that range from topical presentations to working groups, hackathons and much more.</p>
+        <p>Lexpy is a Lexington, Ky based group open to anyone and everyone interested in working with the python language.  We have monthly meetups that range from topical presentations to working groups, hackathons and much more!</p>
         <p>Register below to join and stay informed of upcoming lexpy meetups!</p>
         <p><a class="btn btn-primary btn-lg" href="{% url 'account_signup' %}" role="button"> &raquo; Join Lexpy</a></p>
       </div>
@@ -15,20 +15,37 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Data Science</h2>
+          <h2>Web Development</h2>
+          <p>Python offers a wide range of choices for web development, from writing basic Common Gateway Interface scripts using the CGI module, to popular MVC frameworks like Django, Flask, and TurboGears.</p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>GUI Development</h2>
+          <p>Python can be used for creating Graphical User Interface Programs.  The TkInter development library is included with most binary distributions of Python and there are many other thrid party options available like PyGObject, PyQt, PySide, Kivy, and wxPython.</p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Scientific and Numeric</h2>
           <p>Python is widely used in scientific and numeric computing.  A Data Scientist can combine statistical and machine learning techniques with Python programming to analyze and interpret complex data.</p>
           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Desktop Applications</h2>
+          <h2>Software Development</h2>
           <p>The Tk GUI development library is included with most binary distributions for Python.  In addition, there are many other popular third-party GUI libraries like PyQt, Kivvy, and wxPython.</p>
           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div>
-        <div class="col-md-4">
-          <h2>Web Applications</h2>
-          <p>Python offers a wide range of choices for web development, from writing basic Common Gateway Interface scripts using the CGI module, to popular MVC frameworks like Django, Flask, and TurboGears.</p>
+         <div class="col-md-4">
+          <h2>System Administration</h2>
+          <p>Ansible, Salt, OpenStack.</p>
           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div>
     </div>
 {% endblock content %}
+
+
+Web Development: Django, Pyramid, Bottle, Tornado, Flask, web2py
+GUI Development: tkInter, PyGObject, PyQt, PySide, Kivy, wxPython
+Scientific and Numeric: SciPy, Pandas, IPython
+Software Development: Buildbot, Trac, Roundup
+System Administration: Ansible, Salt, OpenStack
